@@ -111,16 +111,6 @@ iframe{
 </style>
 </head>
 <body>
-	<script>
-	function switchTool(url, element) {
-    		if (url === 'comingSoon') {
-       	 		alert('Coming Soon 🚀');
-        		return;
-    		}
-    		// هنا لو فيه رابط حقيقي
-    		window.open(url, '_blank'); // أو أي طريقة فتح الرابط عندك
-	}
-	</script>
 <!-- Sidebar Tools -->
 <div class="tabs" id="tabs">
 	<div style="text-align:center; font-weight:bold; font-size:18px; color:var(--main); margin-bottom:15px;">
@@ -138,9 +128,22 @@ iframe{
     <div class="tab" onclick="switchTool('https://saad3mer.github.io/per-thousand-calculator/',this)">
         <span>%</span> 𝑃 Calc
     </div>
-	<div class="tab" onclick="switchTool('comingSoon',this)">
+<div class="tab" onclick="switchTool('comingSoon', this)">
     <span><i class="fas fa-sim-card"></i></span> Sim dashboard
-	</div>
+</div>
+
+<script>
+function switchTool(link, element) {
+    if(link === 'comingSoon') {
+        // بدل فتح رابط، نظهر رسالة
+        alert('Coming Soon 🚀');
+        return;
+    }
+    // لو فيه رابط حقيقي
+    window.open(link, '_blank');
+}
+</script>
+
 	
 	</div>
 

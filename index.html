@@ -132,7 +132,17 @@ iframe{
 	<div class="tab" onclick="switchTool('comming soon',this)">
     <span><i class="fas fa-sim-card"></i></span> Sim dashboard
 	</div>
-</div>
+	<script>
+		function switchTool(url, element) {
+    		if (url === 'comingSoon') {
+       	 	alert('Coming Soon 🚀');
+        	return;
+    		}
+    	// هنا لو فيه رابط حقيقي
+    	window.open(url, '_blank'); // أو أي طريقة فتح الرابط عندك
+	}
+	</script>
+	</div>
 
 <!-- iframe الأداة -->
 <iframe id="frame" src="https://saad3mer.github.io/OperationNumber/"></iframe>

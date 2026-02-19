@@ -1,63 +1,0 @@
-<!DOCTYPE html>
-<html lang="ar">
-<head>
-<meta charset="UTF-8">
-<title>Operation Number</title>
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
-<script src="https://cdn.sheetjs.com/xlsx-latest/package/dist/xlsx.full.min.js"></script>
-<link rel="stylesheet" href="style.css">
-<script src="script.js" defer></script>
-</head>
-
-<body>
-
-<div class="container">
-<div class="box">
-
-<h3>🔢 Operation Number</h3>
-<input id="amount" placeholder="ادخل المبلغ">
-
-<div style="display:flex; gap:10px; margin-top:10px;">
-    <button class="generate-btn" onclick="generateOrder()">
-        <i class="fa fa-plus"></i> توليد رقم جديد
-    </button>
-    <button class="copy-btn" onclick="copyOrder()">
-        <i class="fa fa-copy"></i> نسخ رقم الأمر
-    </button>
-</div>
-
-<h3 style="margin-top:30px;">🔍 بحث عن عملية</h3>
-<div class="search-container">
-    <input id="searchInput" placeholder="اكتب رقم الأمر">
-    <button onclick="searchOrder()"><i class="fa fa-search"></i> بحث</button>
-</div>
-
-<h3 style="margin-top:30px;">📋 العمليات المسجلة</h3>
-
-<div class="table-wrapper">
-<table id="ordersTable">
-<thead>
-<tr>
-    <th>رقم الأمر</th>
-    <th>المبلغ</th>
-    <th>التاريخ والوقت</th>
-</tr>
-</thead>
-<tbody></tbody>
-</table>
-</div>
-
-<div class="file-buttons">
-    <input type="file" id="importFile" accept=".xlsx">
-    <button onclick="importOrders()"><i class="fa fa-file-import"></i> استيراد Excel</button>
-    <button onclick="exportToExcel()"><i class="fa fa-file-export"></i> تصدير Excel</button>
-</div>
-
-</div>
-</div>
-
-<div id="orderPopup" class="order-popup"></div>
-
-</body>
-</html>
-

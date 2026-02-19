@@ -1,1 +1,73 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>WE Tool Hub</title>
+<link rel="stylesheet" href="style.css">
+<script src="script.js" defer></script>
 
+</head>
+<body>
+
+<div class="container">
+    <!-- كود وجهاز -->
+    <div class="card">
+        <h3>WECodeGen</h3>
+
+        <div class="code-container">
+            <input type="text" id="phone" placeholder="ادخل الرقم كامل">
+              <input type="text" id="amount" placeholder="المبلغ">          
+            <div class="checkbox-group">
+                <input type="radio" id="landline" name="type" checked>
+                <label for="landline">خط أرضي</label>
+
+                <input type="radio" id="net" name="type">
+                <label for="net">فاتورة نت</label>
+            </div>
+
+            <button id="genBtn" onclick="generateCode(this)">إنشاء الكود ونسخه</button>
+
+            <div style="display:flex; gap:10px;">
+                <button onclick="copyCode('#688#',this)">استعلام رقم</button>
+                <button onclick="copyCode('*7*1*2*100100#',this)">استعلام محفظة</button>
+            </div>
+
+            <div id="copiedCodeBox"></div>
+        </div>
+    </div>
+
+    <!-- جدول الشرائح -->
+    <div class="sim-box">
+        <h3>جدول الشرائح</h3>
+        <div class="edit-sims" onclick="openModal()">✏️</div>
+        <table class="sim-table">
+            <thead>
+                <tr>
+                    <th>كود الشريحة</th>
+                    <th>رقم الشريحة</th>
+                    <th>الرصيد</th>
+                </tr>
+            </thead>
+            <tbody id="simBody"></tbody>
+        </table>
+    </div>
+</div>
+
+<!-- Modal تعديل الشرائح -->
+<div class="modal" id="simModal">
+    <div class="modal-content">
+        <h3>تعديل الشرائح</h3>
+        <button class="close-btn" onclick="closeModal()">✖ اغلاق</button>
+        <table class="sim-table">
+            <thead>
+                <tr><th>كود الشريحة</th><th>رقم الشريحة</th><th>الرصيد</th><th></th></tr>
+            </thead>
+            <tbody id="simModalBody"></tbody>
+        </table>
+        <button onclick="addSimModal()">➕ إضافة شريحة</button>
+    </div>
+</div>
+
+</body>
+</html>

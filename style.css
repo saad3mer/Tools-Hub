@@ -1,0 +1,100 @@
+:root{
+    --bg:#f3f4f6;
+    --card:#ffffff;
+    --text:#111827;
+    --border:#e5e7eb;
+    --main:#2563eb;
+    --hover:#60a5fa;
+}
+body.dark{
+    --bg:#0f172a;
+    --card:#020617;
+    --text:#e5e7eb;
+    --border:#1e293b;
+    --main:#38bdf8;
+    --hover:#0ea5e9;
+}
+
+*{box-sizing:border-box}
+body{
+    margin:0;
+    font-family:Arial,sans-serif;
+    background:var(--bg);
+    color:var(--text);
+    min-height:100vh;
+    display:flex;
+    flex-direction:row-reverse;
+    transition:all 0.3s ease;
+}
+
+/* Sidebar */
+.tabs{
+    display:flex;
+    flex-direction:column;
+    width:220px;
+    background:var(--card);
+    border-left:1px solid var(--border);
+    overflow-y:auto;
+    padding-top:15px;
+    gap:10px;
+}
+
+/* Tab Buttons */
+.tab{
+    padding:12px;
+    cursor:pointer;
+    display:flex;
+    align-items:center;
+    gap:12px;
+    border-radius:14px;
+    transition:.25s;
+    box-shadow:0 4px 12px rgba(0,0,0,.08);
+    background:var(--card);
+    margin:0 10px;
+}
+
+.tab span{font-size:24px;}
+
+.tab:hover{
+    transform:translateX(-5px) scale(1.05);
+    background:var(--hover);
+    color:#fff;
+    box-shadow:0 8px 20px rgba(0,0,0,.2);
+}
+
+.tab.active{
+    background:var(--main);
+    color:#fff;
+    font-weight:bold;
+    transform:translateX(-5px);
+    box-shadow:0 8px 20px rgba(0,0,0,.25);
+}
+
+/* iframe */
+iframe{
+    flex:1;
+    border:none;
+    height:100vh;
+    transition:all 0.3s ease-in-out;
+}
+
+/* Dark Mode Toggle */
+.toggle{
+    position:fixed;
+    top:10px;
+    left:10px;
+    cursor:pointer;
+    font-size:20px;
+    z-index:1000;
+    padding:8px 12px;
+    border-radius:8px;
+    background:var(--main);
+    color:#fff;
+    font-weight:bold;
+    transition: all 0.3s ease;
+}
+.toggle.dark{
+    background:#f3f4f6;
+    color:#111827;
+    border:1px solid var(--border);
+}

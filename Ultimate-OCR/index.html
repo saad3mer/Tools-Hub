@@ -1,1 +1,41 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+<meta charset="UTF-8">
+<title>Ultimate OCR Tool</title>
+<link rel="stylesheet" href="style.css">
+<script src="script.js" defer></script>
+<script src="https://cdn.jsdelivr.net/npm/tesseract.js@5/dist/tesseract.min.js"></script>
+</head>
+
+<body>
+
+<div class="container">
+<div class="card">
+
+    <div class="header">
+        <h2>🧠 Ultimate OCR</h2>
+        <div style="display:flex; gap:10px; align-items:center">
+            <div class="badge">Ctrl + V للصق صورة</div>
+        </div>
+    </div>
+
+    <div class="preview" id="preview">
+        <small>الصورة هتظهر هنا تلقائي</small>
+    </div>
+
+    <div class="loader" id="loader">⏳ جاري قراءة النص...</div>
+
+    <textarea id="result" readonly placeholder="النص المستخرج من الصورة"></textarea>
+
+    <div class="orders" id="ordersBox" style="display:none">
+        <h4>📌 أرقام أوامر مكتشفة</h4>
+        <div id="orders"></div>
+    </div>
+
+</div>
+</div>
+
+</body>
+</html>
 

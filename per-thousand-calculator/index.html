@@ -1,1 +1,45 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+<meta charset="UTF-8">
+<title>حاسبة الخصم على الألف</title>
+<link rel="stylesheet" href="style.css">
+<script src="script.js" defer></script>
 
+</head>
+<body>
+
+<div class="card">
+    <div class="header">
+        <h2>حساب الخصم على الألف</h2>
+    </div>
+
+    <label>المبلغ</label>
+    <input type="number" id="amount" placeholder="اكتب المبلغ">
+
+    <label>اختار الخصم</label>
+    <div class="rate-row">
+        <div class="buttons">
+            <button onclick="setRate(5,this)">5 ‰</button>
+            <button onclick="setRate(6,this)">6 ‰</button>
+            <button onclick="setRate(8,this)">8 ‰</button>
+        </div>
+
+        <input 
+            type="number" 
+            id="customRate" 
+            placeholder="‰"
+            oninput="setCustomRate(this.value)"
+        >
+    </div>
+
+    <div class="result">
+        <div>💸 قيمة الخصم: <b id="discount">0</b></div>
+        <div>✅ الناتج النهائي: <b id="final">0</b></div>
+    </div>
+
+    <button class="copy" id="copyBtn" onclick="copyResult()">📋 نسخ الناتج</button>
+</div>
+
+</body>
+</html>

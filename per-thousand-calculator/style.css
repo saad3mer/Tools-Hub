@@ -1,0 +1,140 @@
+:root{
+    --bg:#f3f4f6;
+    --card:#ffffff;
+    --text:#111827;
+    --border:#e5e7eb;
+    --main:#2563eb;
+}
+body.dark{
+    --bg:#0f172a;
+    --card:#020617;
+    --text:#e5e7eb;
+    --border:#1e293b;
+    --main:#38bdf8;
+}
+
+*{box-sizing:border-box}
+
+body{
+    margin:0;
+    font-family:Arial, sans-serif;
+    background:var(--bg);
+    color:var(--text);
+    min-height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    direction:rtl;
+}
+
+.card{
+    background:var(--card);
+    width:100%;
+    max-width:360px;
+    padding:20px;
+    border-radius:18px;
+    box-shadow:0 15px 30px rgba(0,0,0,.15);
+}
+
+.header{
+    display:flex;
+    justify-content:center;
+    margin-bottom:15px;
+}
+
+h2{
+    margin:0;
+    font-size:20px;
+}
+
+label{
+    display:block;
+    margin-top:12px;
+    font-weight:bold;
+}
+
+input{
+    width:100%;
+    padding:12px;
+    margin-top:6px;
+    border-radius:12px;
+    border:1px solid var(--border);
+    background:transparent;
+    color:var(--text);
+    font-size:16px;
+}
+
+.rate-row{
+    display:flex;
+    gap:10px;
+    margin-top:6px;
+}
+
+.buttons{
+    display:flex;
+    gap:8px;
+    flex:1;
+}
+
+.buttons button{
+    flex:1;
+    padding:10px;
+    border:none;
+    border-radius:12px;
+    cursor:pointer;
+    font-size:14px;
+    background:var(--border);
+    color:var(--text);
+    transition:.2s;
+}
+
+.buttons button.active{
+    background:var(--main);
+    color:#fff;
+}
+
+#customRate{
+    width:70px;
+    padding:10px;
+    border-radius:12px;
+    border:1px solid var(--border);
+    background:transparent;
+    color:var(--text);
+    font-size:14px;
+    text-align:center;
+}
+
+.result{
+    margin-top:15px;
+    background:rgba(0,0,0,.05);
+    padding:12px;
+    border-radius:12px;
+}
+
+.result div{
+    margin-bottom:6px;
+}
+
+.copy{
+    margin-top:10px;
+    width:100%;
+    padding:12px;
+    border:none;
+    border-radius:14px;
+    background:var(--main);
+    color:#fff;
+    font-size:15px;
+    cursor:pointer;
+    transition:.2s;
+}
+
+.copy.copied{
+    background:#16a34a;
+    animation:pop .3s ease;
+}
+
+@keyframes pop{
+    0%{transform:scale(1)}
+    50%{transform:scale(1.08)}
+    100%{transform:scale(1)}
+}

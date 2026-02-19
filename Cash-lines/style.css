@@ -1,0 +1,161 @@
+:root{
+    --bg:#f3f4f6;
+    --card:#ffffff;
+    --text:#111827;
+    --border:#e5e7eb;
+    --main:#2563eb;
+    --soft:rgba(0,0,0,.05);
+}
+
+body.dark{
+    --bg:#0f172a;
+    --card:#020617;
+    --text:#e5e7eb;
+    --border:#1e293b;
+    --main:#38bdf8;
+    --soft:rgba(255,255,255,.06);
+}
+
+/* Reset */
+*{
+    box-sizing:border-box;
+}
+
+/* Body */
+body{
+    margin:0;
+    font-family:Arial, sans-serif;
+    background:var(--bg);
+    color:var(--text);
+    min-height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    direction:rtl;
+}
+
+/* Card */
+.card{
+    background:var(--card);
+    width:480px;
+    padding:35px;
+    border-radius:20px;
+    box-shadow:0 15px 30px rgba(0,0,0,.15);
+    text-align:center;
+}
+
+/* Title */
+h2{
+    margin-bottom:25px;
+    color:var(--text);
+}
+
+/* Search Box */
+.search-box{
+    display:flex;
+    gap:10px;
+    align-items:center;
+}
+
+/* Inputs */
+input{
+    width:100%;
+    padding:14px;
+    border-radius:12px;
+    border:1px solid var(--border);
+    background:transparent;
+    color:var(--text);
+    font-size:15px;
+}
+
+input::placeholder{
+    color:color-mix(in srgb, var(--text) 45%, transparent);
+}
+
+input:focus{
+    outline:none;
+    border-color:var(--main);
+    box-shadow:0 0 0 3px color-mix(in srgb, var(--main) 25%, transparent);
+}
+
+/* Search Button */
+.search-btn{
+    width:48px;
+    height:48px;
+    border-radius:50%;
+    border:none;
+    background:var(--main);
+    color:#fff;
+    font-size:23px;
+    cursor:pointer;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    transition:.2s;
+}
+
+.search-btn:hover{
+    filter:brightness(.9);
+}
+
+/* Result */
+.result{
+    margin-top:20px;
+    padding:14px;
+    border-radius:12px;
+    font-weight:bold;
+    font-size:15px;
+    background:var(--soft);
+    min-height:20px;
+}
+
+.success{
+    color:#16a34a;
+}
+
+.error{
+    color:#dc2626;
+}
+
+/* Main Button */
+button{
+    margin-top:20px;
+    padding:12px;
+    width:100%;
+    border:none;
+    border-radius:14px;
+    background:var(--main);
+    color:#fff;
+    font-size:14px;
+    cursor:pointer;
+    transition:.2s;
+}
+
+button:hover{
+    filter:brightness(.9);
+}
+
+/* Table */
+.table-box{
+    margin-top:20px;
+    max-height:250px;
+    overflow:auto;
+    display:none;
+    border-radius:12px;
+}
+
+table{
+    width:100%;
+    border-collapse:collapse;
+}
+
+th{
+    background:var(--main);
+    color:#fff;
+}
+
+th,td{
+    padding:8px;
+    text-align:center;
+    border-bottom:1px solid var(--border);
+}

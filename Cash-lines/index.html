@@ -1,1 +1,40 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>شرايح الكاش</title>
+<link rel="stylesheet" href="style.css">
+<script src="script.js" defer></script>
+</head>
 
+<body>
+
+<div class="card">
+    <h2>بحث بالكود أو الرقم</h2>
+
+<div class="search-box">
+    <input type="text" id="searchInput" placeholder="اكتب الكود أو الرقم">
+    <button class="search-btn" onclick="doSearch()">🔍</button>
+</div>
+
+
+    <div class="result" id="resultBox"></div>
+
+    <button onclick="toggleTable()">عرض / إخفاء الداتا</button>
+
+    <div class="table-box" id="tableBox">
+        <table>
+            <thead>
+                <tr>
+                    <th>الكود</th>
+                    <th>الرقم</th>
+                </tr>
+            </thead>
+            <tbody id="tableBody"></tbody>
+        </table>
+    </div>
+</div>
+
+</body>
+</html>

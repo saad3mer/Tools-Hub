@@ -17,20 +17,14 @@
 
         <div class="code-container">
             <input type="text" id="phone" placeholder="ادخل الرقم كامل">
-              <input type="text" id="amount" placeholder="المبلغ">          
-            <div class="checkbox-group">
-                <input type="radio" id="landline" name="type" checked>
-                <label for="landline">خط أرضي</label>
-
-                <input type="radio" id="net" name="type">
-                <label for="net">فاتورة نت</label>
-            </div>
-
-            <button id="genBtn" onclick="generateCode(this)">إنشاء الكود ونسخه</button>
+            <input type="text" id="amount" placeholder="المبلغ">        
+            <button onclick="generateCode('net', this)" , this>انترنت منزلي وي</button>
+            <button onclick="generateCode('landline', this)">تليفون ارضي وي</button>
+            <button onclick="generateCode('mobile', this)">فاتورة موبايل وي</button>
 
             <div style="display:flex; gap:10px;">
-                <button onclick="copyCode('#688#',this)">استعلام رقم</button>
-                <button onclick="copyCode('*7*1*2*100100#',this)">استعلام محفظة</button>
+                <button onclick="copyWithAnimation('#688#',this)">استعلام رقم</button>
+                <button onclick="copyWithAnimation('*7*1*2*100100#',this)">استعلام محفظة</button>
             </div>
 
             <div id="copiedCodeBox"></div>

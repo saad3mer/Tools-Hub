@@ -64,19 +64,6 @@ button.copied{
     100%{background:var(--main);}
 }
 
-/* الراديو */
-.checkbox-group{
-    display:flex; justify-content:space-between; margin-bottom:15px;
-}
-.checkbox-group label{
-    flex:1; padding:12px; margin:0 5px;
-    border:1px solid var(--main);
-    border-radius:8px; text-align:center;
-    font-weight:bold; cursor:pointer;
-}
-.checkbox-group input{display:none;}
-.checkbox-group input:checked + label{background:var(--main);color:#fff;}
-
 /* صندوق الأكواد تحت الأزرار */
 #copiedCodeBox{
     margin-top:10px; padding:12px; border-radius:8px;

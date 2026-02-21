@@ -1,10 +1,14 @@
 let sims=JSON.parse(localStorage.getItem("sims"))||[];
+const codes = {
+    net: {withAmount: '*7*3*3*1*${gov}*${rest}*2*${amount}*100100#' , noAmount:'*7*3*3*1*${gov}*${rest}*1*100100#'},
+    landline: {withAmount: '*7*3*2*${gov}*${rest}*2*${amount}*100100#' , noAmount:'*7*3*2*${gov}*${rest}*1*100100#'},
+    mobile: {withAmount: '' , noAmount:'*7*3*1*1*${phone}*1*100100#'}
+};
 
-/* ===== WE CODE ===== */
-function generateCode(btn){
+
+function generateCode(type, btn){
     const phone = document.getElementById("phone").value.trim();
     const amount = document.getElementById('amount').value.trim();
-    const type = document.getElementById("net").checked ? "net" : "landline";
 
     if(phone.length < 3){
         alert('من فضلك ادخل الرقم صح');
@@ -13,34 +17,35 @@ function generateCode(btn){
 
     const gov = phone.substring(0,3);
     const rest = phone.substring(3);
-    let code = "";
 
-    if(amount === "") {
-        // لو المبلغ فاضي
-        code = type === "landline"
-            ? `*7*3*2*${gov}*${rest}*1*100100#`
-            : `*7*3*3*1*${gov}*${rest}*1*100100#`;
+    // اختيار الكود حسب وجود مبلغ
+    let template;
+    if(amount && codes[type].withAmount){
+        template = codes[type].withAmount;
     } else {
-        // لو المبلغ موجود
-        code = type === "landline"
-            ? `*7*3*2*${gov}*${rest}*2*${amount}*100100#`
-            : `*7*3*3*1*${gov}*${rest}*2*${amount}*100100#`;
+        template = codes[type].noAmount;
     }
+
+    // استبدال المتغيرات داخل الكود
+    const code = template
+        .replace("${gov}", gov)
+        .replace("${rest}", rest)
+        .replace("${amount}", amount)
+        .replace("${phone}", phone);
 
     copyWithAnimation(code, btn);
 }
 
-
-function copyWithAnimation(code,btn){
+function copyWithAnimation(code, btn){
     navigator.clipboard.writeText(code);
     btn.classList.add("copied");
     setTimeout(()=>{btn.classList.remove("copied");},500);
     document.getElementById("copiedCodeBox").innerText=code;
-}
     
-function copyCode(code, btn){
-    copyWithAnimation(code, btn);
+    document.getElementById("phone").value = "";
+    document.getElementById("amount").value = "";
 }
+
 
 /* ===== جدول العرض ===== */
 function save(){localStorage.setItem("sims",JSON.stringify(sims));}

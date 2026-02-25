@@ -18,9 +18,11 @@
         <div class="code-container">
             <input type="text" id="phone" placeholder="ادخل الرقم كامل">
             <input type="text" id="amount" placeholder="المبلغ">        
-            <button onclick="generateCode('net', this)" , this>انترنت منزلي وي</button>
-            <button onclick="generateCode('landline', this)">تليفون ارضي وي</button>
-            <button onclick="generateCode('mobile', this)">فاتورة موبايل وي</button>
+			<div class="services-buttons">
+				<button onclick="generateCode('mobile', this)">فاتورة موبايل</button>
+				<button onclick="generateCode('net', this)">فاتورة انترنت</button>
+				<button onclick="generateCode('landline', this)">فاتورة ارضي</button>
+			</div>
 
             <div style="display:flex; gap:10px;">
                 <button onclick="copyWithAnimation('#688#',this)">استعلام رقم</button>

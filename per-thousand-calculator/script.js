@@ -1,4 +1,3 @@
-// ==================== Dark Mode ====================
 window.addEventListener("message", (event) => {
     if(event.data.dark !== undefined){
         document.body.classList.toggle("dark", event.data.dark);
@@ -11,7 +10,6 @@ window.addEventListener("message", (event) => {
 if(window.parent){
     window.parent.postMessage({requestTheme:true}, '*');
 }
-// ==================================================
 
 let rate = 0;
 

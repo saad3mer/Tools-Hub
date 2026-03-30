@@ -10,7 +10,7 @@ body.dark{
     --card:#020617;
     --text:#e5e7eb;
     --border:#1e293b;
-    --main:#38bdf8;
+    --main:#2563eb;
 }
 
 *{box-sizing:border-box}
@@ -137,4 +137,12 @@ input{
     0%{transform:scale(1)}
     50%{transform:scale(1.08)}
     100%{transform:scale(1)}
+}
+
+body, div, button, span {
+    user-select: none;
+}
+
+input, textarea {
+    user-select: text;
 }

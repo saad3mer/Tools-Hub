@@ -8,12 +8,12 @@
   --result-bg:rgba(0,0,0,0.05);
 }
 [data-theme="dark"]{
-  --bg:#0f172a;
-  --card:#1e293b;
+  --bg:#111827;
+  --card:#020617;
   --text:#f8fafc;
-  --main:#3b82f6;
-  --input-bg:#1f2937;
-  --input-border:#374151;
+  --main:#2563eb;
+  --input-bg:#1e293b;
+  --input-border:#1e293b;
   --result-bg:rgba(255,255,255,0.08);
 }
 
@@ -105,8 +105,15 @@ button:hover{
   transform:scale(1.02);
 }
 
-/* Animation للنسخ داخل الزر */
 button.copied{
-  background:#10b981; /* أخضر */
+  background:#10b981;
   transform:scale(1.05);
+}
+
+body, div, button, span {
+    user-select: none;
+}
+
+input, textarea {
+    user-select: text;
 }

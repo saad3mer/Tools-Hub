@@ -4,7 +4,6 @@ const result = document.getElementById("result");
 const ordersBox = document.getElementById("ordersBox");
 const ordersDiv = document.getElementById("orders");
 
-// Paste image & OCR
 document.addEventListener("paste", e => {
     for (let item of e.clipboardData.items) {
         if (item.type.includes("image")) {
@@ -56,9 +55,6 @@ function detectOrders(text) {
     });
 }
 
-// =========================
-// Dark Mode مباشر من Tools Hub
-// =========================
 window.addEventListener("message", (event) => {
     if(event.data.dark !== undefined){
         if(event.data.dark){

@@ -66,3 +66,11 @@ body.dark tr:nth-child(even){ background:#1f2937; }
 
 .file-buttons { display:flex; gap:10px; margin-top:15px; }
 .file-buttons button { background:#FF5722; color:#fff; font-size:14px; padding:8px 14px; }
+
+body, div, button, span {
+    user-select: none;
+}
+
+input, textarea {
+    user-select: text;
+}

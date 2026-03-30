@@ -125,7 +125,6 @@ function importOrders(){
     reader.readAsArrayBuffer(file);
 }
 
-// تفعيل زر Enter لتوليد الرقم ونسخه تلقائي
 document.getElementById("amount").addEventListener("keydown", function(e){
     if(e.key === "Enter"){
         generateOrder();
@@ -134,9 +133,6 @@ document.getElementById("amount").addEventListener("keydown", function(e){
 
 updateOrdersTable();
 
-// =========================
-// Dark Mode مباشر من Tools Hub
-// =========================
 window.addEventListener("message", (event) => {
     if(event.data.dark !== undefined){
         if(event.data.dark){

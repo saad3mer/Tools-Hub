@@ -1,9 +1,7 @@
 const CODES = {
-
   "balance": {
     withAmount: '*557*${phone}*${amount}*1#'
   }
-
 };
 
 function showNotification(message, type = "success") {
@@ -25,46 +23,69 @@ function copyText(text) {
   showNotification(text);
 }
 
+let balance = 0;
+
+const totalInput = document.getElementById("totalBalance");
+const amountInput = document.getElementById("amount");
+
+// تحميل أول قيمة من الإجمالي
+balance = parseFloat(totalInput.value) || 0;
+
+// لو غيرت الإجمالي بإيدك
+totalInput.addEventListener("input", () => {
+    balance = parseFloat(totalInput.value) || 0;
+});
+
+function withdraw(amount) {
+    if (!amount || amount <= 0) return;
+
+    // منع السالب
+    if (amount > balance) {
+        // هنا الرسالة هتظهر في نفس الصندوق بتاع النسخ
+        showNotification("المبلغ أكبر من إجمالي القيمة!", "danger");
+        amountInput.value = "";
+        return;
+    }
+
+    // خصم
+    balance -= amount;
+
+    // تحديث الإجمالي
+    totalInput.value = balance;
+
+    // تمييز الرقم في إجمالي القيمة
+    totalInput.style.backgroundColor = "#ffff99"; // لون أصفر فاتح
+    totalInput.style.fontWeight = "bold";
+
+    // تفريغ خانة المبلغ فقط
+    amountInput.value = "";
+}
 function generateCode(type) {
   const phoneInput = document.getElementById("phone");
-  const amountInput = document.getElementById("amount");
   const phone = phoneInput.value.trim();
-  const amount = amountInput.value.trim();
+  const amount = parseFloat(amountInput.value.trim());
+
   if (phone.length < 3) {
     showNotification("من فضلك ادخل الرقم صحيح", "danger");
     return;
   }
 
   const codeData = CODES[type];
-
   if (!codeData) {
     showNotification("خدمة غير متاحة", "danger");
     return;
   }
 
-  let template =
-    amount && codeData.withAmount
-      ? codeData.withAmount
-      : codeData.noAmount;
-
-  if (!template) {
-    showNotification("الكود غير متاح", "danger");
-    return;
-  }
-
-  const gov = phone.slice(0, 3);
-  const rest = phone.slice(3);
+  const template = codeData.withAmount;
 
   const finalCode = template
-    .replace(/\${gov}/g, gov)
-    .replace(/\${rest}/g, rest)
-    .replace(/\${amount}/g, amount)
-    .replace(/\${phone}/g, phone);
+    .replace(/\${phone}/g, phone)
+    .replace(/\${amount}/g, amount);
 
   copyText(finalCode);
 
-  phoneInput.value = "";
-  amountInput.value = "";
+  // خصم المبلغ من الإجمالي مباشرة
+  withdraw(amount);
 }
 
 document.querySelectorAll("[data-type]").forEach(btn => {
@@ -78,13 +99,15 @@ document.querySelectorAll("[data-code]").forEach(btn => {
   btn.addEventListener("click", () => {
     const code = btn.dataset.code;
     copyText(code);
-    document.getElementById("phone").value = "";
-    document.getElementById("amount").value = "";
+
+    // خصم المبلغ لو موجود
+    const amount = parseFloat(amountInput.value);
+    withdraw(amount);
   });
 });
 
-window.addEventListener("message",(event)=>{
-    const d=event.data;
-    if(d==="dark"||d?.dark===true||d?.theme==="dark") document.body.classList.add("dark");
-    if(d==="light"||d?.dark===false||d?.theme==="light") document.body.classList.remove("dark");
+window.addEventListener("message", (event) => {
+  const d = event.data;
+  if (d === "dark" || d?.dark === true || d?.theme === "dark") document.body.classList.add("dark");
+  if (d === "light" || d?.dark === false || d?.theme === "light") document.body.classList.remove("dark");
 });

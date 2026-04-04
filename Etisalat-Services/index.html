@@ -1,1 +1,34 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Orange Services</title>
+  <link rel="stylesheet" href="style.css" />
+  <script src="script.js" defer></script>
+</head>
 
+<body>
+  <main class="container">
+    <section class="card" id="card">
+      <h3>Etisalat</h3>
+
+      <div class="code-container">
+        <input type="text" id="phone" placeholder="ادخل الرقم كامل" />
+        <input type="text" id="amount" placeholder="المبلغ" />
+
+        <div class="services-buttons">
+          <button data-type="balance">شحن رصيد</button>
+        </div>
+
+        <div class="quick-actions">
+          <button data-code="">استعلام رقم</button>
+          <button data-code="">استعلام محفظة</button>
+        </div>
+		
+		<div id="copiedCodeBox"></div>
+      </div>
+    </section>
+  </main>
+</body>
+</html>

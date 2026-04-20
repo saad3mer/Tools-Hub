@@ -48,7 +48,7 @@ function calculate(){
 amountInput.addEventListener("input", calculate);
 
 function copyResult(){
-    const text = `المبلغ بعد الخصم: ${finalEl.textContent}`;
+    const text = `${finalEl.textContent}`;
     navigator.clipboard.writeText(text);
 
     copyBtn.classList.add("copied");
